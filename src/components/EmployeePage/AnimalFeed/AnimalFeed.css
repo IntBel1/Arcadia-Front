@@ -1,0 +1,137 @@
+.contactPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('home4.jpg');
+  background-size: cover;
+  position: relative;
+}
+
+
+.RegisterDetail {
+  border: 2px solid;
+  margin-top: -15rem;
+  width: 70rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 8%;
+  height: 85vh;
+  border-radius: 10px;
+  backdrop-filter: blur(60px);
+  position: absolute;
+  z-index: 1010;
+}
+
+.RegisterDetail h2 {
+  font-size: 9rem;
+  margin-top:-50cm;
+  padding-left: 1.2rem;
+  padding-right: 2.4rem;
+  
+}
+
+
+.RegisterInfo1 {
+  width: 80%;
+  height: 2rem;
+  padding: 1rem 0rem;
+  position: relative;
+  margin-left: 5%;
+  margin-right: 15%;
+  position: relative;
+}
+.RegisterInfo1 h1{
+ color: #ffa500;
+  padding-left: 9rem;
+  padding-right: 2.4rem;
+
+}
+
+.RegisterInfo1 input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  border: 2px solid;
+  border-radius: 40px;
+  color: #000;
+  font-size: 1rem;
+  outline: none;
+  padding-left: 1.2rem;
+  padding-right: 2.4rem;
+}
+
+.regisIcon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: -4rem;
+}
+
+.RegisterInfo1 input::placeholder, .RegisterName input::placeholder {
+  color: #000;
+}
+
+.RegisterInfo1 button {
+  width: 30%;
+  height: 4rem;
+  border-radius: 40px;
+  border: none;
+  font-size: 1.5rem;
+  background-color:#ffa500;
+  cursor: pointer;
+  margin-left: 40%;
+ 
+}
+.RegisterInfo1 label{
+  margin-left: 5%;
+  color: #ffa500;
+  font-size: x-large;
+}
+.RegisterInfo1 select{
+  
+    width: 20%;
+    margin-left: 6%;
+    margin-right: 6%;
+    height: 4rem;
+    color: #ffa500;
+    background-color: transparent;
+    border-radius: 20px;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;   
+
+}
+
+
+
+.RegisterInfo3 {
+  width: 80%;
+  height: 2rem;
+  padding: 1rem 0rem;
+  position: relative;
+  margin-right: 15%;
+  position: relative;
+  
+}
+
+
+.RegisterInfo1 output {
+  width: 100%;
+  height: 100%;
+  background-color: #ffa500;
+  border: 2px solid;
+  border-radius: 40px;
+  font-size: 1.3rem;
+  padding-left: 1.2rem;
+  padding-right: 2.4rem;
+  
+}
+
+

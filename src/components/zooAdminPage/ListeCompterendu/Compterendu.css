@@ -1,0 +1,49 @@
+.DashPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('home4.jpg');
+    background-size: cover;
+    position: relative;
+    
+}
+.DashPage h2{
+    text-align: center;
+    color: #ffa500;
+}
+
+.DashInfor {
+    background-color: transparent;
+    border: 2px solid #000000;
+    width: 100rem;
+    border-radius: 10px;
+    backdrop-filter: blur(60px);
+    position: absolute;
+    z-index: 1001;
+}
+
+.CustomersN{
+    border:'5px'  
+}
+
+table {
+    background-color: transparent;
+    width: 80%; /* Largeur du tableau ajustée à 80% de la largeur de la fenêtre */
+      border-collapse: collapse;
+      margin-top: 20px; /* Marge supérieure pour l'espacement */
+      margin-left: 200px;
+
+      }
+  table button{
+    background-color:#ffa500;
+    border-radius: 15px;
+  }
+  th{
+    color: #ffa500;;
+  }
+  th, td {
+    border: 2px solid transparent;
+    padding: 8px;
+    text-align: center;
+  }

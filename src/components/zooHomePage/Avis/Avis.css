@@ -1,0 +1,96 @@
+.ticketDisplay {
+    min-height: 110vh;
+    background-color: #FEFAE0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15rem;
+}
+
+.ticketH1 {
+    position: absolute;
+    font-size: 6rem;
+    color: white;
+    margin-top: 10rem;
+}
+
+.ticketDisplay img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+
+
+
+
+.reviews {
+    position: relative;
+    background: #003329;
+    padding: 100px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reviews h2 {
+    font-size: 4rem;
+    color: white;
+    font-weight: 600;
+    margin-top: -2rem;
+}
+
+.review {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    padding: 70px;
+    text-align: left;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
+}
+
+.review-content {
+    overflow: hidden;
+}
+
+.review-content h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+
+.visitor {
+    font-size: 1em;
+    color: #e67e22;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.review-content p {
+    font-size: 1em;
+    color: #34495e;
+    margin: 0 0 10px;
+}
+
+.stars {
+    font-size: 1.5em;
+    color: #f39c12;
+}
