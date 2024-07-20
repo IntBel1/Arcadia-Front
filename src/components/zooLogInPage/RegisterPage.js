@@ -5,117 +5,111 @@ import { FaPhoneFlip } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa6";
 import { FaLockOpen } from "react-icons/fa6";
 import Navbar from '../zooAnimalPage/Navbar/Navbar';
-
+import authService from '../../services/authService';
 
 const RegisterPage = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [point] = useState('1');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
   
-  const handleRegister = () => {
-    if (firstName === '' || lastName === '' || phoneNumber === '' || email === '' || password === '' || confirmPassword === '') {
-      setErrorMessage('Please fill in the boxes.');
-      return;
-    }
+  const [formData, setFormData] = useState({
+    username: '',
+    prenom: '',
+    nom: '',
+    email: '',
+    password: '',
+    role_id: '1'
+  });
 
-    if (password !== confirmPassword) {
-      setErrorMessage('wrong passwor');
-      return;
-    }
-
-    fetch('http://localhost:3001/api/register', {
-      method: 'POST',
-      body: JSON.stringify({ FIRSTNAME: firstName, LASTNAME: lastName, EMAIL: email, PHONENUMBER: phoneNumber, PASSWORD: password, POINT: point }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        localStorage.setItem('userToken', phoneNumber);
-        window.location.href = "/";
-      } else {
-        setErrorMessage(data.message);
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
     });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await authService.register(formData);
+      console.log('User registered:', response.data);
+      // You can add any additional logic here, like redirecting the user or showing a success message
+    } catch (error) {
+      console.error('Error registering user:', error);
+      // Handle the error appropriately, such as showing an error message to the user
+    }
   };
 
   return (
-    <div className="registerPage">
-      <Navbar/>
-      <div className='RegisterDetail'>
-        <h2>Register</h2>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+    <div className='loginPage'>
+      <Navbar />
+      <form className='loginInfor' onSubmit={handleSubmit}>
+        <h2>Create account</h2>
 
-        <div className='RegisterName'>
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+        <div className='inputLogIn'>
+          <input 
+            type='text' 
+            id="username" 
+            name="username" 
+            placeholder='UserName' 
+            value={formData.username}
+            onChange={handleChange}
           />
         </div>
 
-        <div className='RegisterInfo'>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+        <div className='inputLogIn'>
+          <input 
+            type='text' 
+            id="prenom" 
+            name="prenom" 
+            placeholder='FirstName' 
+            value={formData.prenom}
+            onChange={handleChange}
           />
-          <MdEmail className='regisIcon' color='white'/>
         </div>
 
-
-        <div className='RegisterInfo'>
-          <input
-            type="text"
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+        <div className='inputLogIn'>
+          <input 
+            type='text' 
+            id="nom" 
+            name="nom" 
+            placeholder='LastName' 
+            value={formData.nom}
+            onChange={handleChange}
           />
-          <FaPhoneFlip className='regisIcon' color='white'/>
         </div>
 
-        <div className='RegisterInfo'>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+        <div className='inputLogIn'>
+          <input 
+            type='text' 
+            id="email" 
+            name="email" 
+            placeholder='Email' 
+            value={formData.email}
+            onChange={handleChange}
           />
-          <FaLock className='regisIcon' color='white'/>
         </div>
 
-        <div className='RegisterInfo'>
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+        <div className='inputLogIn'>
+          <input 
+            type='password' 
+            id="password" 
+            name="password" 
+            placeholder='Password' 
+            value={formData.password}
+            onChange={handleChange}
           />
-          <FaLockOpen className='regisIcon' color='white'/>
         </div>
-
-        <button onClick={handleRegister}>Register</button>
-
-      </div>
+        
+        <label htmlFor="role">Role:</label>
+        <select 
+          id="role_id" 
+          name="role_id" 
+          value={formData.role_id} 
+          onChange={handleChange}
+        >
+          <option value="1">Employee</option>
+          <option value="2">Veterinarian</option>
+        </select>
+        
+        <button type='submit'>Register</button>
+      </form>
     </div>
   );
 };
