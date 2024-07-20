@@ -10,7 +10,6 @@ const ServiceData = [
     intro: "Discover a wide range of zoo-themed merchandise, from plush toys to educational books, at our zoo shops.",
     appear: "Our zoo shops are conveniently located throughout the zoo, offering a pleasant shopping experience with friendly staff ready to assist.",
     lifeStyle: "Visitors can purchase souvenirs that reflect the diverse wildlife and unique experiences they encounter at the zoo.",
-    
     warn: "Please be mindful of your purchases and consider the environmental impact of the products you buy.",
     preserve: "A portion of the proceeds from our zoo shops goes towards wildlife conservation efforts and supporting the zoo's educational programs."
   }

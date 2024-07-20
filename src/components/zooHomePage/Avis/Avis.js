@@ -16,7 +16,7 @@ const Avis = () => {
             <div class="review-card">
                 <img src="agent.png" alt="Avatar" class="avatar"></img>
                 <div class="review-content">
-                    <h3>Hamza Argoubi</h3>
+                    <h3>Peter</h3>
                     <span class="visitor">Visiteur</span>
                     <p>I had an amazing time at Arcadia Zoo. The educational programs were engaging, and my kids loved the interactive exhibits!</p>
                     <div class="stars">★★★★★</div>
@@ -25,7 +25,7 @@ const Avis = () => {
             <div class="review-card">
                 <img src="agent2.png" alt="Avatar" class="avatar"></img>
                 <div class="review-content">
-                    <h3>Hamza Argoubi</h3>
+                    <h3>Emilie</h3>
                     <span class="visitor">Visiteur</span>
                     <p>Arcadia Zoo is a paradise for wildlife enthusiasts! The habitats are beautifully designed, and the animals seem so well cared for.</p>
                     <div class="stars">★★★★★</div>

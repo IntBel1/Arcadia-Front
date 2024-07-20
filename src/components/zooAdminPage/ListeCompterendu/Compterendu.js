@@ -2,7 +2,6 @@
 import './Compterendu.css';
 
 import Navbar from '../../zooAnimalPage/Navbar/Navbar';
-
 const Compterendu = () => {
 return (
      

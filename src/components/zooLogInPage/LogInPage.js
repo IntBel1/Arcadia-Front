@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useContext  } from 'react';
 import './LogInPage.css';
 import { FaUser } from 'react-icons/fa';
 import { IoIosLock } from 'react-icons/io';
 import Navbar from '../zooAnimalPage/Navbar/Navbar';
+import { AuthContext } from '../context/AuthContext';
+
 
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { setAuth } = useContext(AuthContext);
+
  
   const handleLogin = (event) => {
     event.preventDefault(); 
