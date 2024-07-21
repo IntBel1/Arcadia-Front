@@ -2,42 +2,47 @@
 import './dashboard.css';
 
 import Navbar from '../../zooAnimalPage/Navbar/Navbar';
+import { Table, Button } from 'react-bootstrap';
+
+
 
 const dashPage = () => {
-return (
+/*return (
      
         <div className='DashPage'>
       <Navbar />
-      <form className='DashInfor' >
-        <h2>Member Dashboard</h2>
-    
-        <table>
+      <Table striped bordered hover>
+            <thead>
                 <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Team</th>
-                <th colspan="2">Actions</th>
-            </tr>
-            <tr>
-                <td>Donnée 1</td>
-                <td>Donnée 2</td>
-                <td>Donnée 3</td>
-                <td>Donnée 4</td>
-                <td>Donnée 5</td>
-                <td>Donnée 6</td>
-                <td><button>Modify</button></td>
-                <td><button>Delete</button></td>
-            </tr>
-            
-        </table>
-        
-      </form>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data.map((item, index) => (
+                    <tr key={index}>
+                        <td>{item.title}</td>
+                        <td>{item.description}</td>
+                        <td>
+                            <img src={item.image} alt={item.title} style={{ width: '100px', height: '100px' }} />
+                        </td>
+                        <td>
+                            <Button variant="warning" onClick={() => onModify(item.id)}>
+                                Modify
+                            </Button>{' '}
+                            <Button variant="danger" onClick={() => onDelete(item.id)}>
+                                Delete
+                            </Button>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
     </div>
  
-  );
+  );*/
 }
 
 

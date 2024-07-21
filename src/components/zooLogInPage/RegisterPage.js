@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './RegisterPage.css'
-import { MdEmail } from "react-icons/md";
-import { FaPhoneFlip } from "react-icons/fa6";
-import { FaLock } from "react-icons/fa6";
-import { FaLockOpen } from "react-icons/fa6";
 import Navbar from '../zooAnimalPage/Navbar/Navbar';
 import authService from '../../services/authService';
 
@@ -29,10 +25,8 @@ const RegisterPage = () => {
     try {
       const response = await authService.register(formData);
       console.log('User registered:', response.data);
-      // You can add any additional logic here, like redirecting the user or showing a success message
     } catch (error) {
       console.error('Error registering user:', error);
-      // Handle the error appropriately, such as showing an error message to the user
     }
   };
 
@@ -102,10 +96,10 @@ const RegisterPage = () => {
           id="role_id" 
           name="role_id" 
           value={formData.role_id} 
-          onChange={handleChange}
-        >
-          <option value="1">Employee</option>
-          <option value="2">Veterinarian</option>
+          onChange={handleChange}>
+          <option value="1">Admin</option>
+          <option value="2">Employee</option>
+          <option value="3">Veterinarian</option>
         </select>
         
         <button type='submit'>Register</button>

@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ServiceDisplay.css';
-import ServiceData from '../servicesData';
+import serviceService from '../../../services/serviceService';
+
 
 const ServiceDisplay = () => {
-  const itemsPerPage = 9; 
-  const [currentPage] = useState(1); 
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentAnimals = ServiceData.slice(indexOfFirstItem, indexOfLastItem);
+  useEffect(() => {
+    // Function to fetch services
+    const fetchServices = async () => {
+      try {
+        const response = await serviceService.getServices();
+        setData(response.data);
+      } catch (e) {
+        setError('Service failed to load');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []); // Empty dependency array to run only once when the component mounts
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className='displayAnimal'>
@@ -18,15 +35,14 @@ const ServiceDisplay = () => {
         <p>Enjoy unique shopping, expert-led tours, a scenic Zoo Train ride, and a variety of dining options with great views. Join us for an unforgettable adventure!</p>
       </div>
       <div className='firstThree'>
-        {currentAnimals.map((animal, index) => (
+        {data && data.map((service, index) => (
           <div className={index % 2 === 0 ? 'one' : 'zero'} key={index}>
             <div className='imgBox'>
-              <img src={animal.url} alt={animal.title} />
+              <img src={service.image} alt={service.title} />
             </div>
             <div className='contentBox'>
-              <h2>{animal.title}</h2>
-              <p>{animal.body}</p>
-              
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
             </div>
           </div>
         ))}

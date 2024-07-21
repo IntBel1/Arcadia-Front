@@ -3,21 +3,22 @@ import './LogInPage.css';
 import { FaUser } from 'react-icons/fa';
 import { IoIosLock } from 'react-icons/io';
 import Navbar from '../zooAnimalPage/Navbar/Navbar';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../../context/authContext';
+import authService from '../../services/authService';
 
 
 
 const LogInPage = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const { setAuth } = useContext(AuthContext);
-
+  const { login } = useContext(AuthContext);
  
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault(); 
 
-    if (email === '') {
+    if (username === '') {
       setErrorMessage('Please enter your email.');
       return;
     }
@@ -26,39 +27,24 @@ const LogInPage = () => {
       setErrorMessage('Please enter a password.');
       return;
     }
-
-    
-    fetch('http://localhost:3001/api/login', {
-      method: 'POST',
-      body: JSON.stringify({ setEmail, password }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          
-          localStorage.setItem('userToken', email);
-          
-          window.location.href = '/';
-        } else {
-          setErrorMessage(data.message);
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    try{
+      const response = await authService.login({username,password});
+      const { token, role } = response.data;
+            login(token, role);
+      localStorage.setItem('token', token);
+    }
+    catch(e) {
+      alert('Login failed');
+    }    
   };
 
-  const handlePhoneNumberChange = (event) => {
-    setEmail(event.target.value);
+
+  const handleEmailhange = (event) => {
+    setUsername(event.target.value);
     if (event.target.value !== '' && errorMessage) {
       setErrorMessage('');
     }
   };
-
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
     if (event.target.value !== '' && errorMessage) {
@@ -76,9 +62,9 @@ const LogInPage = () => {
         <div className='inputLogIn'>
           <input
             type='text'
-            placeholder='Email'
-            value={email}
-            onChange={handlePhoneNumberChange}
+            placeholder='Username'
+            value={username}
+            onChange={handleEmailhange}
           />
           <FaUser size={25} className='loginIcon' color='white'/>
         </div>
@@ -92,18 +78,7 @@ const LogInPage = () => {
           />
           <IoIosLock size={27} className='loginIcon' color='white'/>
         </div>
-
-        <div className='LogInRF'>
-          <label>
-            <input type='checkbox' />
-            Remember me
-          </label>
-          <a href='#'>Forgot password ?</a>
-        </div>
-
         <button type='submit'>Log in</button>
-
-        
       </form>
     </div>
   );

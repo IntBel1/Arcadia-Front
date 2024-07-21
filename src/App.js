@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route  } from "react-router-dom";
 import HomePage from './components/zooHomePage/HomePage';
 import AnimalsDetail from './components/zooAnimalsDetail/AnimalsDetail';
 import AnimalPage from './components/zooAnimalPage/AnimalPage';
