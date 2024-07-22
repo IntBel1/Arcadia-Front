@@ -14,7 +14,7 @@ const HomeSlider = () => {
         const response = await animalService.getAnimals();
         setData(response.data);
       } catch (e) {
-        setError('Service failed to load');
+        setError('animal failed to load');
       } finally {
         setLoading(false);
       }
