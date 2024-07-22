@@ -43,6 +43,7 @@ function App() {
       <Route path="/accountRegister" element={<Registeraccount/>} />
       <Route path="/MoAccount" element={<Modifaccount/>} />
       <Route path="/Sregister" element={<SeRegister/>} />
+      <Route path="/services/:id/edit" element={<SeRegister/>} />
       <Route path="/SModif" element={<SeModif/>} />
       <Route path="/AnModif" element={<AnModif/>} />
       <Route path="/AnRegister" element={<AnRegister/>} />

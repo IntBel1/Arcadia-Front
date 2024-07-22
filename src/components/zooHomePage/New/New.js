@@ -3,7 +3,7 @@ import './New.css'
 import serviceService from '../../../services/serviceService';
 
 const New = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
   
@@ -26,7 +26,7 @@ const New = () => {
     <div className='New'>
         <h1>WHAT SERVICES DO WE HAVE ?</h1>
        
-        <div className='containerNew'>
+        <div className='containerNew' >
             {data[0]&&
             <div className='left'>
                 <h2>{data[0].title}</h2>

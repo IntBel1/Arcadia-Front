@@ -100,7 +100,7 @@ const Servreg = ({onSuccess}) => {
             onChange={handleChange}
           />
         </div>
-        <button type='submit'>add Service</button>
+        <button type='submit'>{id?'update service':'add service'}</button>
       </form>
     </div>
   );
