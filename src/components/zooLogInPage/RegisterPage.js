@@ -11,7 +11,7 @@ const RegisterPage = () => {
     nom: '',
     email: '',
     password: '',
-    role_id: '1'
+    role_id: ''
   });
 
   const handleChange = (e) => {

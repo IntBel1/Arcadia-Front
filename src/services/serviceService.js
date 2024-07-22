@@ -9,7 +9,19 @@ class serviceService {
     return axios.get(`${API_URL}/service/`);
   }
 
+  async addService(service) {
+    return axios.post(`${API_URL}/service/`, service);
+  }
 
+  async getServiceById(id){
+    return axios.get(`${API_URL}/service/`+id);
+  }
+  async updateService(id,service) {
+    return axios.put(`${API_URL}/service/`+id,service);
+  }
+  async deleteService(id) {
+    return axios.delete(`${API_URL}/service/`+id);
+  }
 
 }
 
